@@ -1,6 +1,7 @@
 package problems;
 
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class PS1 {
@@ -10,6 +11,10 @@ public class PS1 {
    * Find the sum of all the multiples of 3 or 5 below 1000.
    */
   public static void problem_one() {
+    /**
+     * I thought to do an array list, store every value in it and add up the sum. But I realized I don't need to store the numbers,
+     * I just needed to add them to a running total. Solved 11 Feb 2019
+     */
     int sum = 0;
 
     for (int i = 1; i < 1000; i++) {
@@ -30,7 +35,28 @@ public class PS1 {
    * By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
    */
   public static void problem_two() {
+    /**
+     * Again, updating the values and keeping a running total seemed less expensive memory-wise than
+     * storing all the even Fibonacci numbers and adding them at the end. Solved 11 Feb 2019
+     */
+    int sum = 0;
+    int a = 1;
+    int b = 2;
+    int c;
+    sum += b;
+    System.out.printf("%d %n", b);
 
+    do {
+      c = a + b;
+      a = b;
+      b = c;
+      if (c % 2 == 0){
+        sum += c;
+        System.out.printf("+ %d%n", c);
+      }
+    } while (c < 4000000);
+
+    System.out.printf("= %d", sum);
   }
 
   /**
@@ -39,7 +65,24 @@ public class PS1 {
    * What is the largest prime factor of the number 600851475143 ?
    */
   public static void problem_three() {
+    BigInteger max_factor = BigInteger.ONE;
+    BigInteger number = new BigInteger("13195");
 
+    for (BigInteger i = BigInteger.ONE; i.compareTo(number) < 0; i.add(BigInteger.ONE)) {
+      boolean isPrime = true;
+
+      for (BigInteger j = new BigInteger("2"); j.compareTo(i) < 0; j.add(BigInteger.ONE)) {
+        if (i.mod(j).equals(BigInteger.ZERO)) {
+          isPrime = false;
+        }
+      }
+
+      if (number.mod(i).equals(BigInteger.ZERO) && isPrime) {
+        max_factor = i;
+      }
+    }
+
+    System.out.print(max_factor.toString());
   }
 
   /**

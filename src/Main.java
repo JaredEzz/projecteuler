@@ -2,10 +2,10 @@ import static problems.PS1.*;
 
 public class Main {
   public static void main(String[] args) {
-    //Problem Set 1: Problems 1-10
-    problem_one();
+    /**Problem Set 1: Problems 1-10**/
+//    problem_one();
 //    problem_two();
-//    problem_three();
+    problem_three();
 //    problem_four();
 //    problem_five();
 //    problem_six();
