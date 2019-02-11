@@ -4,7 +4,7 @@
 
 ## About Project Euler
 
-![Leonhard Euler (1707-1783)](euler_portrait.png)
+![Leonhard Euler (1707-1783)](res/euler_portrait.png)
 
 ### What is Project Euler?
 
